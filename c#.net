@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double sal,exp, rateofI=0,famt,emi;
+            int time,loanamt,loantype;
+
+            Console.Write("ENTER THE SALARY :");
+            sal = double.Parse(Console.ReadLine());
+            // Console.Write("ENTER THE EXPERINCE :");
+            //exp = double.Parse(Console.ReadLine());
+             
+            if(sal>=21000)
+            {
+                Console.WriteLine("CONGRATS YOUR COMPLETED 1ST STAGE LOAN PROCESS");
+
+                Console.Write("ENTER THE EXPERINCE :");
+                exp = double.Parse(Console.ReadLine());
+                if (exp > 2)
+                {
+                    Console.WriteLine("CONGRATS YOUR COMPELETED THE 2ND SATGE OF LOAN PROCESS");
+
+                }
+                else if(exp<2)
+                {
+                    Console.WriteLine("SORRY, YOUR LOAN PROCESS IS REJECTED DUE TO LESS EXPERNICE");
+                    Console.ReadLine();
+                    return;
+                }
+            }
+            else
+            {
+                Console.WriteLine("SORRY, YOUR LOAN PROCESS IS REJECTED DUE TO LOW SALARY");
+                Console.ReadLine();
+                return;
+            }
+
+            Console.Write("ENTER THE LOAN AMOUNT:");
+            loanamt = int.Parse(Console.ReadLine());
+
+            Console.Write("ENTER THE LOAN TIME PERIOD:");
+            time = int.Parse(Console.ReadLine());
+
+
+            Console.WriteLine(" 1)HOME:  11.6% " + "\n 2) EDUCATIONAL:  6.8%" + "\n 3) PERSONAL: 12.4%" + "\n 4) OTHER: 13.6%");
+
+            Console.Write("ENTER THE LOAN type:");
+            loantype = int.Parse(Console.ReadLine());
+
+            
+            switch (loantype)
+            {
+                case 1:
+                    rateofI = loanamt * 11.6 / 100 * time;
+                    Console.WriteLine("RATE OF INTERSET :" + rateofI);
+                    break;
+                case 2:
+                    rateofI = loanamt * 6.8 / 100 * time;
+                    Console.WriteLine("RATE OF INTERSET :" + rateofI);
+                    break;
+                case 3:
+                    rateofI = loanamt * 12.4 / 100 * time;
+                    Console.WriteLine("RATE OF INTERSET :" + rateofI);
+                    break;
+                case 4:
+                    rateofI = loanamt * 13.6 / 100 * time;
+                    Console.WriteLine("RATE OF INTERSET :" + rateofI);
+                    break;
+                default:
+                    Console.WriteLine("ENTER THE VALID LOAN TYPE");
+                    break;
+            }
+            
+            famt = loanamt + rateofI;
+            Console.WriteLine("TOTAL LOAN AMOUNT WITH INTERSET :" + famt);
+
+            emi = famt / (time * 12);
+            Console.WriteLine("EMI AMOUNT IS :" + emi);
+            Console.ReadLine();
+
+
+
+               
+
+
+
+
+        }
+    }
+}
