@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VENUYONA
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double pastMR, currentMR, no_of_units;
+            double category, billamt = 0, tax, addservice_charge;
+
+            Console.Write("ENTER THE PAST MONTH ELECTRICITY BILL : ");
+            pastMR = double.Parse(Console.ReadLine());
+
+            Console.Write("ENTER THE CURRENT MONTH ELECTRICITY BILL : ");
+            currentMR = double.Parse(Console.ReadLine());
+
+            no_of_units = currentMR - pastMR;
+            tax = no_of_units * 6 / 100;
+            addservice_charge = 30;
+            Console.WriteLine("NUMBER OF UNITS CONSUMED :" + no_of_units);
+
+            Console.WriteLine("\n\n\n\t\t\t *****industry type mater reading********* :");
+            Console.WriteLine("\t\t\t\t  1) 0-300 units :6.8");
+            Console.WriteLine("\t\t\t\t  1) 300-600 units :9.8");
+            Console.WriteLine("\t\t\t\t  1) >600 units :12.8");
+
+            Console.WriteLine("\n\n\n\t\t\t *****home type mater reading********* :");
+            Console.WriteLine("\t\t\t\t  1) 0-100 units :1.89");
+            Console.WriteLine("\t\t\t\t  1) 101-200 units :3.4");
+            Console.WriteLine("\t\t\t\t  1) 201-300 units :4.82");
+            Console.WriteLine("\t\t\t\t  1) >600 units :12.8");
+
+            Console.Write("ENTER THE CATEGORY : 1 IS FOR INDUSTRY PERPOUSE : 2 IS FOR HOME PERPOUSE : ");
+            category = double.Parse(Console.ReadLine());
+
+            if (category == 1)
+            {
+                if (no_of_units < 300)
+                {
+                    billamt = (no_of_units * 6.8);
+                    Console.WriteLine("monthly current bill is :" + billamt);
+
+                }
+                else if (no_of_units < 600)
+                {
+                    billamt = (300 * 6.8) + ((no_of_units - 300) * 9.8);
+                    Console.WriteLine("monthly current bill is :" + billamt);
+                }
+                else
+                {
+                    billamt = (300 * 6.8) + (300 * 9.8) + ((no_of_units - 600) * 12.8);
+                    Console.WriteLine("monthly current bill is :" + billamt);
+                }
+            }
+            else
+            {
+                if (category == 2)
+                {
+                    if (no_of_units < 100)
+                    {
+                        billamt = (no_of_units * 1.89);
+                        Console.WriteLine("monthly current bill is :" + billamt);
+
+                    }
+                    else if (no_of_units < 200)
+                    {
+                        billamt = (100 * 1.89) + ((no_of_units - 100) * 3.4);
+                        Console.WriteLine("monthly current bill is :" + billamt);
+                    }
+                    else if (no_of_units < 300)
+                    {
+                        billamt = (100 * 1.89) + (100 * 3.4) + ((no_of_units - 200) * 4.82);
+
+                        Console.WriteLine("monthly current bill is :" + billamt);
+                    }
+                    else
+                    {
+                        billamt = (100 * 1.89) + (100 * 3.4) + (100 * 4.82) + ((no_of_units - 300) * 6.23);
+                        Console.WriteLine("monthly current bill is :" + billamt);
+
+                    }
+                }
+                double finalamt = billamt + tax + addservice_charge;
+                Console.WriteLine("your final current bill is : " + finalamt);
+                Console.ReadLine();
+
+            }
+        }
+    }
+}
