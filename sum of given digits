@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n, count = 0, som = 0;
+            Console.Write("ENTER THE N VALUE : ");
+            n = int.Parse(Console.ReadLine());
+            while(n>0)
+            {
+                int r = n % 10;
+                count = count + 1;
+                n = n / 10;
+                for(int i=1;i<=count;i++)
+                {
+                    int r1 = n % 10;
+                    som = som + r1;
+                    n = n / 10;
+                }
+
+
+            }
+            Console.WriteLine("sum of digits is :" + som);
+            Console.ReadLine();
+        }
+    }
+}
