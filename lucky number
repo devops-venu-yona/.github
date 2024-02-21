@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp13
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n,r=0,sum=0;
+            Console.Write("ENTER THE N VALUE : ");
+            n = int.Parse(Console.ReadLine());
+
+            while(n!=0)
+            {
+                r= n % 10;
+                sum = sum + r;
+                n = n / 10;
+
+            }
+            Console.WriteLine(sum);
+            int temp = sum, temp1, sum1=0;
+            while(temp!=0)
+            {
+                temp = sum / 10;
+                sum1 = sum1 + temp;
+                sum = sum / 10;
+            }
+            Console.WriteLine(sum1);
+            Console.ReadLine();
+
+
+        }
+    }
+}
